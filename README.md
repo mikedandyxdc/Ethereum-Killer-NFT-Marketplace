@@ -6,6 +6,15 @@
 
 10,000 unique NFTs on XDC Network. Fully on-chain marketplace with red-black tree ordering and min-heap price tracking.
 
+## Smart Contract Key Features
+
+- **Fully on-chain marketplace** — No off-chain indexers or backend. All sorting, pagination, offers, and sales history live in the smart contract.
+- **Red-black tree + min-heap** — O(log n) sorted queries and O(1) floor price, directly on-chain
+- **Offer system** — Make, update, withdraw, and accept offers with automatic outbid refunds
+- **Front-running protection** — Buyers pass expected price to prevent mempool price manipulation
+- **On-chain pagination** — All queries support ascending/descending sort with pagination
+- **Sales history** — Per-token and global sales history stored and queryable on-chain
+
 ## Prerequisites
 
 - Node.js v18+
