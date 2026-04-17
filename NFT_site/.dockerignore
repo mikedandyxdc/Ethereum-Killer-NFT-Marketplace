@@ -1,0 +1,18 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+.dockerignore
+Dockerfile
+README.md
+.vscode
+.idea
+coverage
+tests
+*.log
+.DS_Store
+
+# Large NFT asset folders — mounted at runtime via docker-compose, not baked into image
+public/nfts_thumbnail
+public/nfts_full

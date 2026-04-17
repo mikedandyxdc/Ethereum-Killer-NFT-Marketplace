@@ -1,0 +1,14 @@
+[profile.default]
+src = "contracts"
+test = "foundry-test"
+out = "foundry-out"
+libs = ["node_modules", "lib"]
+# solc_version = "0.8.0"
+solc_version = "0.8.4"
+optimizer = true
+optimizer_runs = 200
+
+[fuzz]
+runs = 1000
+max_test_rejects = 65536
+seed = "0x1234"

@@ -1,0 +1,59 @@
+# docker-compose.yml — runs Next.js + Caddy together
+# Deploy: docker compose up -d
+#
+# Before first deploy:
+#   1. Generate a Cloudflare Origin Certificate (Cloudflare dashboard -> SSL/TLS -> Origin Server)
+#   2. Save it as ./certs/cloudflare-origin.pem (the cert)
+#   3. Save the private key as ./certs/cloudflare-origin.key
+#   4. Set Cloudflare SSL mode to "Full (strict)" for xdc.art
+#   5. Point xdc.art DNS to your server IP (orange cloud, proxied)
+#   6. rsync the NFT asset folders to the server next to this file:
+#        ./nfts_thumbnail/  (~848MB)
+#        ./nfts_full/       (~3.9GB)
+
+services:
+  nextjs:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    # Pre-built image — build locally with:
+    #   docker build -t xrc721-nextjs:latest .
+    # Then save + copy + load on the server:
+    #   docker save xrc721-nextjs:latest | gzip > xrc721.tar.gz
+    #   scp xrc721.tar.gz user@server:~
+    #   ssh user@server 'docker load < xrc721.tar.gz'
+    image: xrc721-nextjs:latest
+    container_name: xrc721-nextjs
+    restart: unless-stopped
+    expose:
+      - "3000"
+    # No external port mapping — Caddy is the only thing facing the internet
+    volumes:
+      # Mount large NFT asset folders from the host instead of baking them into the image
+      # (saves ~5GB per image build/transfer). Files live on the server filesystem.
+      - ./nfts_thumbnail:/app/public/nfts_thumbnail:ro
+      - ./nfts_full:/app/public/nfts_full:ro
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: xrc721-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"  # HTTP/3
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./certs:/etc/caddy/certs:ro
+      # Serve NFT images directly from Caddy (bypasses Next.js for lower CPU/latency).
+      # Same host folders are also mounted into the Next.js container as a fallback.
+      - ./nfts_thumbnail:/srv/nfts_thumbnail:ro
+      - ./nfts_full:/srv/nfts_full:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - nextjs
+
+volumes:
+  caddy_data:
+  caddy_config:

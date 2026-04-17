@@ -1,0 +1,58 @@
+# Caddyfile — reverse proxy for Next.js on xdc.art
+#
+# Uses Cloudflare Origin Certificate for the origin <-> Cloudflare connection.
+# Paste the cert/key from Cloudflare dashboard into:
+#   ./certs/cloudflare-origin.pem
+#   ./certs/cloudflare-origin.key
+# docker-compose.yml mounts these into /etc/caddy/certs/ inside the container.
+#
+# HTTP -> HTTPS redirects are automatic (Caddy does it for every HTTPS block).
+
+# www.xdc.art -> xdc.art (must be above the apex block)
+www.xdc.art {
+    tls /etc/caddy/certs/cloudflare-origin.pem /etc/caddy/certs/cloudflare-origin.key
+    redir https://xdc.art{uri} permanent
+}
+
+# Main site: xdc.art -> Next.js container
+xdc.art {
+    tls /etc/caddy/certs/cloudflare-origin.pem /etc/caddy/certs/cloudflare-origin.key
+
+    # Serve NFT images directly from disk (bypass Next.js).
+    # Files are bind-mounted into the Caddy container at /srv/nfts_{thumbnail,full}.
+    # The Next.js app/nfts_thumbnail/[name]/route.js handler stays as a fallback
+    # for local dev (docker run without Caddy).
+    @nft_thumb path /nfts_thumbnail/*
+    handle @nft_thumb {
+        root * /srv/nfts_thumbnail
+        uri strip_prefix /nfts_thumbnail
+        header Cache-Control "public, max-age=31536000, immutable"
+        header Content-Type "image/jpeg"
+        file_server
+    }
+
+    @nft_full path /nfts_full/*
+    handle @nft_full {
+        root * /srv/nfts_full
+        uri strip_prefix /nfts_full
+        header Cache-Control "public, max-age=31536000, immutable"
+        header Content-Type "image/jpeg"
+        file_server
+    }
+
+    # Everything else -> Next.js
+    handle {
+        reverse_proxy nextjs:3000
+    }
+
+    # Security headers (apply to all responses)
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+
+    # Compression
+    encode gzip zstd
+}

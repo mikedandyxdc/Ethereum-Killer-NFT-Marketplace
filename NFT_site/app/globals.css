@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #e5e5e5;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Hide "New to Ethereum wallets? / Learn More" footer in compact connect modal.
+   appInfo.disclaimer renders a <div data-rk-hide-footer> marker inside the footer wrapper.
+   We hide the wrapper (:has the marker) and the 1px divider preceding it (+ combinator). */
+[data-rk] div:has(> [data-rk-hide-footer]) {
+  display: none !important;
+}
+/* The 1px divider is the previous sibling — use :has(+ selector) to target it */
+[data-rk] div:has(+ div > [data-rk-hide-footer]) {
+  display: none !important;
+}
+/* Hide the "?" InfoButton that appears when disclaimer is provided */
+[data-rk] button[aria-label="Info"] {
+  display: none !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}

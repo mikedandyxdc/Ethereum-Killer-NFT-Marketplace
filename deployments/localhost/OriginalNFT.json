@@ -1,0 +1,615 @@
+{
+  "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "approved",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "approved",
+          "type": "bool"
+        }
+      ],
+      "name": "ApprovalForAll",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getApproved",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        }
+      ],
+      "name": "isApprovedForAll",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownerOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "approved",
+          "type": "bool"
+        }
+      ],
+      "name": "setApprovalForAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x43f521879033d7770b1cad5c812ba28266092067abc173fcfc6ded2f8b678858",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "transactionIndex": 0,
+    "gasUsed": "1391099",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000040001000000000000000000000008000000000000000000040000000000000000000000000000020000000000000000000800000002000000000000000010000000000000000008200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000002000000060000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xd2b694911f6b407b12bfece155199e19abbed88d609a40e12c739c01863a421b",
+    "transactionHash": "0x43f521879033d7770b1cad5c812ba28266092067abc173fcfc6ded2f8b678858",
+    "logs": [
+      {
+        "transactionIndex": 0,
+        "blockNumber": 4,
+        "transactionHash": "0x43f521879033d7770b1cad5c812ba28266092067abc173fcfc6ded2f8b678858",
+        "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x000000000000000000000000b3c7c1c14f83f57370fce247ec359be8584c3902",
+          "0x0000000000000000000000000000000000000000000000000000000000000001"
+        ],
+        "data": "0x",
+        "logIndex": 0,
+        "blockHash": "0xd2b694911f6b407b12bfece155199e19abbed88d609a40e12c739c01863a421b"
+      }
+    ],
+    "blockNumber": 4,
+    "cumulativeGasUsed": "1391099",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "4637ef0f46eb0ef6c9978505e3e4c075",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"approve(address,uint256)\":{\"details\":\"Approves another address to transfer the given token ID The zero address indicates there is no approved address. There can only be one approved address per token at a given time. Can only be called by the token owner or an approved operator.\",\"params\":{\"to\":\"address to be approved for the given token ID\",\"tokenId\":\"uint256 ID of the token to be approved\"}},\"balanceOf(address)\":{\"details\":\"Returns the number of NFTs in `owner`'s account.\"},\"getApproved(uint256)\":{\"details\":\"Gets the approved address for a token ID, or zero if no address set Reverts if the token ID does not exist.\",\"params\":{\"tokenId\":\"uint256 ID of the token to query the approval of\"},\"returns\":{\"_0\":\"address currently approved for the given token ID\"}},\"isApprovedForAll(address,address)\":{\"details\":\"Tells whether an operator is approved by a given owner.\",\"params\":{\"operator\":\"operator address which you want to query the approval of\",\"owner\":\"owner address which you want to query the approval of\"},\"returns\":{\"_0\":\"bool whether the given operator is approved by the given owner\"}},\"ownerOf(uint256)\":{\"details\":\"Gets the owner of the specified token ID.\",\"params\":{\"tokenId\":\"uint256 ID of the token to query the owner of\"},\"returns\":{\"_0\":\"address currently marked as the owner of the given token ID\"}},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"Safely transfers the ownership of a given token ID to another address If the target address is a contract, it must implement `onXRC721Received`, which is called upon a safe transfer, and return the magic value `bytes4(keccak256(\\\"onXRC721Received(address,address,uint256,bytes)\\\"))`; otherwise, the transfer is reverted. Requires the msg.sender to be the owner, approved, or operator\",\"params\":{\"from\":\"current owner of the token\",\"to\":\"address to receive the ownership of the given token ID\",\"tokenId\":\"uint256 ID of the token to be transferred\"}},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Safely transfers the ownership of a given token ID to another address If the target address is a contract, it must implement `onXRC721Received`, which is called upon a safe transfer, and return the magic value `bytes4(keccak256(\\\"onXRC721Received(address,address,uint256,bytes)\\\"))`; otherwise, the transfer is reverted. Requires the msg.sender to be the owner, approved, or operator\",\"params\":{\"_data\":\"bytes data to send along with a safe transfer check\",\"from\":\"current owner of the token\",\"to\":\"address to receive the ownership of the given token ID\",\"tokenId\":\"uint256 ID of the token to be transferred\"}},\"setApprovalForAll(address,bool)\":{\"details\":\"Sets or unsets the approval of a given operator An operator is allowed to transfer all tokens of the sender on their behalf.\",\"params\":{\"approved\":\"representing the status of the approval to be set\",\"to\":\"operator address to set the approval\"}},\"supportsInterface(bytes4)\":{\"details\":\"See `IXRC165.supportsInterface`. Time complexity O(1), guaranteed to always use less than 30 000 gas.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Transfers the ownership of a given token ID to another address. Usage of this method is discouraged, use `safeTransferFrom` whenever possible. Requires the msg.sender to be the owner, approved, or operator.\",\"params\":{\"from\":\"current owner of the token\",\"to\":\"address to receive the ownership of the given token ID\",\"tokenId\":\"uint256 ID of the token to be transferred\"}}},\"title\":\"XRC721 Non-Fungible Token Standard basic implementation\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/OriginalNFT.sol\":\"OriginalNFT\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/OriginalNFT.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\t\\n\\t// import \\\"https://github.com/XDCFoundation/XRC721-SMART-CONTRACT/blob/main/XRC721/IXRC721.sol\\\";\\n\\t// import \\\"https://github.com/XDCFoundation/XRC721-SMART-CONTRACT/blob/main/XRC721/IXRC721Receiver.sol\\\";\\n\\t// import \\\"https://github.com/XDCFoundation/XRC721-SMART-CONTRACT/blob/main/XRC721/SafeMath.sol\\\";\\n\\t// import \\\"https://github.com/XDCFoundation/XRC721-SMART-CONTRACT/blob/main/XRC721/Address.sol\\\";\\n\\t// import \\\"https://github.com/XDCFoundation/XRC721-SMART-CONTRACT/blob/main/XRC721/Counters.sol\\\";\\n\\t// import \\\"https://github.com/XDCFoundation/XRC721-SMART-CONTRACT/blob/main/XRC721/XRC165.sol\\\";\\n    import \\\"./external/IXRC721.sol\\\";\\n    import \\\"./external/IXRC721Receiver.sol\\\";\\n    import \\\"./external/SafeMath.sol\\\";\\n    import \\\"./external/Address.sol\\\";\\n    import \\\"./external/Counters.sol\\\";\\n    import \\\"./external/XRC165.sol\\\";\\n\\t\\n\\t/**\\n\\t * @title XRC721 Non-Fungible Token Standard basic implementation\\n\\t */\\n\\tcontract OriginalNFT is XRC165, IXRC721 {\\n\\t    using SafeMath for uint256;\\n\\t    using Address for address;\\n\\t    using Counters for Counters.Counter;\\n\\t\\n\\t    // Equals to `bytes4(keccak256(\\\"onXRC721Received(address,address,uint256,bytes)\\\"))`\\n\\t    // which can be also obtained as `IXRC721Receiver(0).onXRC721Received.selector`\\n\\t    bytes4 private constant _XRC721_RECEIVED = 0x150b7a02;\\n\\t\\n\\t    // Mapping from token ID to owner\\n\\t    mapping (uint256 => address) private _tokenOwner;\\n\\t\\n\\t    // Mapping from token ID to approved address\\n\\t    mapping (uint256 => address) private _tokenApprovals;\\n\\t\\n\\t    // Mapping from owner to number of owned token\\n\\t    mapping (address => Counters.Counter) private _ownedTokensCount;\\n\\t\\n\\t    // Mapping from owner to operator approvals\\n\\t    mapping (address => mapping (address => bool)) private _operatorApprovals;\\n\\n\\t\\tmapping(uint256 => string) private _tokenURIs;\\n\\n\\t\\t// bool already_minted = false;\\n\\t\\t// bool already_set_token_uri = false;\\n\\t\\n\\t    /*\\n\\t     *     bytes4(keccak256('balanceOf(address)')) == 0x70a08231\\n\\t     *     bytes4(keccak256('ownerOf(uint256)')) == 0x6352211e\\n\\t     *     bytes4(keccak256('approve(address,uint256)')) == 0x095ea7b3\\n\\t     *     bytes4(keccak256('getApproved(uint256)')) == 0x081812fc\\n\\t     *     bytes4(keccak256('setApprovalForAll(address,bool)')) == 0xa22cb465\\n\\t     *     bytes4(keccak256('isApprovedForAll(address,address)')) == 0xe985e9c\\n\\t     *     bytes4(keccak256('transferFrom(address,address,uint256)')) == 0x23b872dd\\n\\t     *     bytes4(keccak256('safeTransferFrom(address,address,uint256)')) == 0x42842e0e\\n\\t     *     bytes4(keccak256('safeTransferFrom(address,address,uint256,bytes)')) == 0xb88d4fde\\n\\t     *\\n\\t     *     => 0x70a08231 ^ 0x6352211e ^ 0x095ea7b3 ^ 0x081812fc ^\\n\\t     *        0xa22cb465 ^ 0xe985e9c ^ 0x23b872dd ^ 0x42842e0e ^ 0xb88d4fde == 0x80ac58cd\\n\\t     */\\n\\t    bytes4 private constant _INTERFACE_ID_XRC721 = 0x80ac58cd;\\n\\t\\n\\t     // Token name\\n    string private _name;\\n\\n    // Token symbol\\n    string private _symbol;\\n    address constant private originalOwnerAddress = 0xb3C7c1c14f83f57370fcE247Ec359BE8584C3902;\\n\\tstring constant private tokenuri = \\\"{\\\\\\\"name\\\\\\\": \\\\\\\"Ethereum Killer\\\\\\\",\\\\\\\"description\\\\\\\": \\\\\\\"XDC kills Ethereum in the rainy night with a sharp knife in bloody fashion while XDC's four henchmen look on from behind, savoring every moment. A3 size. 500 DPI.\\\\\\\",\\\\\\\"image\\\\\\\": \\\\\\\"ipfs://QmUWTcu7yvNrih7f5w6Kzt1rKc7qL6J9pXdTKnuPq948Bi\\\\\\\",\\\\\\\"external_url\\\\\\\": \\\\\\\"https://xdc.art/ethereumkiller.png\\\\\\\"}\\\";\\n        \\n    constructor () public {\\n        // register the supported interfaces to conform to XRC721 via XRC165\\n       _name = \\\"Ethereum Killer\\\";\\n        _symbol = \\\"ETHKILLER\\\";\\n        _registerInterface(_INTERFACE_ID_XRC721);\\n\\n\\t\\t_mint(originalOwnerAddress, 1);\\n\\t\\t_setTokenURI(1, tokenuri);\\n\\n    }\\n\\t    function balanceOf(address owner) public view override returns (uint256) {\\n\\t        require(owner != address(0), \\\"XRC721: balance query for the zero address\\\");\\n\\t\\n\\t        return _ownedTokensCount[owner].current();\\n\\t    }\\n\\t    function name() public view returns (string memory){\\n            return _name;\\n        }\\n\\n\\n        function symbol() public view returns (string memory){\\n            return _symbol;\\n        }\\n        \\n\\t\\n\\t    /**\\n\\t     * @dev Gets the owner of the specified token ID.\\n\\t     * @param tokenId uint256 ID of the token to query the owner of\\n\\t     * @return address currently marked as the owner of the given token ID\\n\\t     */\\n\\t    function ownerOf(uint256 tokenId) public view override returns (address) {\\n\\t        address owner = _tokenOwner[tokenId];\\n\\t        require(owner != address(0), \\\"XRC721: owner query for nonexistent token\\\");\\n\\t\\n\\t        return owner;\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Approves another address to transfer the given token ID\\n\\t     * The zero address indicates there is no approved address.\\n\\t     * There can only be one approved address per token at a given time.\\n\\t     * Can only be called by the token owner or an approved operator.\\n\\t     * @param to address to be approved for the given token ID\\n\\t     * @param tokenId uint256 ID of the token to be approved\\n\\t     */\\n\\t    function approve(address to, uint256 tokenId) public override{\\n\\t        address owner = ownerOf(tokenId);\\n\\t        require(to != owner, \\\"XRC721: approval to current owner\\\");\\n\\t\\n\\t        require(msg.sender == owner || isApprovedForAll(owner, msg.sender),\\n\\t            \\\"XRC721: approve caller is not owner nor approved for all\\\"\\n\\t        );\\n\\t\\n\\t        _tokenApprovals[tokenId] = to;\\n\\t        emit Approval(owner, to, tokenId);\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Gets the approved address for a token ID, or zero if no address set\\n\\t     * Reverts if the token ID does not exist.\\n\\t     * @param tokenId uint256 ID of the token to query the approval of\\n\\t     * @return address currently approved for the given token ID\\n\\t     */\\n\\t    function getApproved(uint256 tokenId) public view override returns (address) {\\n\\t        require(_exists(tokenId), \\\"XRC721: approved query for nonexistent token\\\");\\n\\t\\n\\t        return _tokenApprovals[tokenId];\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Sets or unsets the approval of a given operator\\n\\t     * An operator is allowed to transfer all tokens of the sender on their behalf.\\n\\t     * @param to operator address to set the approval\\n\\t     * @param approved representing the status of the approval to be set\\n\\t     */\\n\\t    function setApprovalForAll(address to, bool approved) public override {\\n\\t        require(to != msg.sender, \\\"XRC721: approve to caller\\\");\\n\\t\\n\\t        _operatorApprovals[msg.sender][to] = approved;\\n\\t        emit ApprovalForAll(msg.sender, to, approved);\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Tells whether an operator is approved by a given owner.\\n\\t     * @param owner owner address which you want to query the approval of\\n\\t     * @param operator operator address which you want to query the approval of\\n\\t     * @return bool whether the given operator is approved by the given owner\\n\\t     */\\n\\t    function isApprovedForAll(address owner, address operator) public view override returns (bool) {\\n\\t        return _operatorApprovals[owner][operator];\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Transfers the ownership of a given token ID to another address.\\n\\t     * Usage of this method is discouraged, use `safeTransferFrom` whenever possible.\\n\\t     * Requires the msg.sender to be the owner, approved, or operator.\\n\\t     * @param from current owner of the token\\n\\t     * @param to address to receive the ownership of the given token ID\\n\\t     * @param tokenId uint256 ID of the token to be transferred\\n\\t     */\\n\\t    function transferFrom(address from, address to, uint256 tokenId) public override {\\n\\t        //solhint-disable-next-line max-line-length\\n\\t        require(_isApprovedOrOwner(msg.sender, tokenId), \\\"XRC721: transfer caller is not owner nor approved\\\");\\n\\t\\n\\t        _transferFrom(from, to, tokenId);\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Safely transfers the ownership of a given token ID to another address\\n\\t     * If the target address is a contract, it must implement `onXRC721Received`,\\n\\t     * which is called upon a safe transfer, and return the magic value\\n\\t     * `bytes4(keccak256(\\\"onXRC721Received(address,address,uint256,bytes)\\\"))`; otherwise,\\n\\t     * the transfer is reverted.\\n\\t     * Requires the msg.sender to be the owner, approved, or operator\\n\\t     * @param from current owner of the token\\n\\t     * @param to address to receive the ownership of the given token ID\\n\\t     * @param tokenId uint256 ID of the token to be transferred\\n\\t     */\\n\\t    function safeTransferFrom(address from, address to, uint256 tokenId) public override {\\n\\t        safeTransferFrom(from, to, tokenId, \\\"\\\");\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Safely transfers the ownership of a given token ID to another address\\n\\t     * If the target address is a contract, it must implement `onXRC721Received`,\\n\\t     * which is called upon a safe transfer, and return the magic value\\n\\t     * `bytes4(keccak256(\\\"onXRC721Received(address,address,uint256,bytes)\\\"))`; otherwise,\\n\\t     * the transfer is reverted.\\n\\t     * Requires the msg.sender to be the owner, approved, or operator\\n\\t     * @param from current owner of the token\\n\\t     * @param to address to receive the ownership of the given token ID\\n\\t     * @param tokenId uint256 ID of the token to be transferred\\n\\t     * @param _data bytes data to send along with a safe transfer check\\n\\t     */\\n\\t    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory _data) public override {\\n\\t        transferFrom(from, to, tokenId);\\n\\t        require(_checkOnXRC721Received(from, to, tokenId, _data), \\\"XRC721: transfer to non XRC721Receiver implementer\\\");\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Returns whether the specified token exists.\\n\\t     * @param tokenId uint256 ID of the token to query the existence of\\n\\t     * @return bool whether the token exists\\n\\t     */\\n\\t    function _exists(uint256 tokenId) internal view returns (bool) {\\n\\t        address owner = _tokenOwner[tokenId];\\n\\t        return owner != address(0);\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Returns whether the given spender can transfer a given token ID.\\n\\t     * @param spender address of the spender to query\\n\\t     * @param tokenId uint256 ID of the token to be transferred\\n\\t     * @return bool whether the msg.sender is approved for the given token ID,\\n\\t     * is an operator of the owner, or is the owner of the token\\n\\t     */\\n\\t    function _isApprovedOrOwner(address spender, uint256 tokenId) internal view returns (bool) {\\n\\t        require(_exists(tokenId), \\\"XRC721: operator query for nonexistent token\\\");\\n\\t        address owner = ownerOf(tokenId);\\n\\t        return (spender == owner || getApproved(tokenId) == spender || isApprovedForAll(owner, spender));\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Internal function to mint a new token.\\n\\t     * Reverts if the given token ID already exists.\\n\\t     * @param to The address that will own the minted token\\n\\t     * @param tokenId uint256 ID of the token to be minted\\n\\t     */\\n\\t    function _mint(address to, uint256 tokenId) internal {\\n\\t        require(to != address(0), \\\"XRC721: mint to the zero address\\\");\\n\\t        require(!_exists(tokenId), \\\"XRC721: token already minted\\\");\\n\\t\\n\\t        _tokenOwner[tokenId] = to;\\n\\t        _ownedTokensCount[to].increment();\\n\\t\\n\\t        emit Transfer(address(0), to, tokenId);\\n\\t    }\\n\\n\\t\\t// function mint(address to, uint256 tokenId) external returns (bool) {\\n\\t\\t// \\trequire(already_minted == false, \\\"XRC721: token already minted\\\");\\n\\n\\t\\t// \\t_mint(to, tokenId);\\n\\t\\t// \\treturn true;\\n\\t\\t// }\\n\\n\\t\\t// function _setTokenURI(uint256 tokenId, string calldata uri) internal {\\n\\t\\tfunction _setTokenURI(uint256 tokenId, string memory uri) internal {\\n\\t\\t\\trequire(_exists(tokenId), \\\"XRC721Metadata: URI set of nonexistent token\\\");\\n\\t\\t\\t// require(already_set_token_uri == false, \\\"XRC721: token already set token URI\\\");\\n\\t\\t\\t_tokenURIs[tokenId] = uri;\\n\\t\\t}\\n\\n\\t\\tfunction tokenURI(uint256 tokenId) external view returns (string memory) {\\n\\t\\t\\trequire(_exists(tokenId), \\\"XRC721Metadata: URI query for nonexistent token\\\");\\n\\t\\t\\treturn _tokenURIs[tokenId];\\n\\t\\t}\\n\\n\\t\\t\\n\\t\\n\\t    /**\\n\\t     * @dev Internal function to burn a specific token.\\n\\t     * Reverts if the token does not exist.\\n\\t     * Deprecated, use _burn(uint256) instead.\\n\\t     * @param owner owner of the token to burn\\n\\t     * @param tokenId uint256 ID of the token being burned\\n\\t     */\\n\\t    function _burn(address owner, uint256 tokenId) internal {\\n\\t        require(ownerOf(tokenId) == owner, \\\"XRC721: burn of token that is not own\\\");\\n\\t\\n\\t        _clearApproval(tokenId);\\n\\t\\n\\t        _ownedTokensCount[owner].decrement();\\n\\t        _tokenOwner[tokenId] = address(0);\\n\\t\\n\\t        emit Transfer(owner, address(0), tokenId);\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Internal function to burn a specific token.\\n\\t     * Reverts if the token does not exist.\\n\\t     * @param tokenId uint256 ID of the token being burned\\n\\t     */\\n\\t    function _burn(uint256 tokenId) internal {\\n\\t        _burn(ownerOf(tokenId), tokenId);\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Internal function to transfer ownership of a given token ID to another address.\\n\\t     * As opposed to transferFrom, this imposes no restrictions on msg.sender.\\n\\t     * @param from current owner of the token\\n\\t     * @param to address to receive the ownership of the given token ID\\n\\t     * @param tokenId uint256 ID of the token to be transferred\\n\\t     */\\n\\t    function _transferFrom(address from, address to, uint256 tokenId) internal {\\n\\t        require(ownerOf(tokenId) == from, \\\"XRC721: transfer of token that is not own\\\");\\n\\t        require(to != address(0), \\\"XRC721: transfer to the zero address\\\");\\n\\t\\n\\t        _clearApproval(tokenId);\\n\\t\\n\\t        _ownedTokensCount[from].decrement();\\n\\t        _ownedTokensCount[to].increment();\\n\\t\\n\\t        _tokenOwner[tokenId] = to;\\n\\t\\n\\t        emit Transfer(from, to, tokenId);\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Internal function to invoke `onXRC721Received` on a target address.\\n\\t     * The call is not executed if the target address is not a contract.\\n\\t     *\\n\\t     * This function is deprecated.\\n\\t     * @param from address representing the previous owner of the given token ID\\n\\t     * @param to target address that will receive the tokens\\n\\t     * @param tokenId uint256 ID of the token to be transferred\\n\\t     * @param _data bytes optional data to send along with the call\\n\\t     * @return bool whether the call correctly returned the expected magic value\\n\\t     */\\n\\t    function _checkOnXRC721Received(address from, address to, uint256 tokenId, bytes memory _data)\\n\\t        internal returns (bool)\\n\\t    {\\n\\t        if (!to.isContract()) {\\n\\t            return true;\\n\\t        }\\n\\t\\n\\t        bytes4 retval = IXRC721Receiver(to).onXRC721Received(msg.sender, from, tokenId, _data);\\n\\t        return (retval == _XRC721_RECEIVED);\\n\\t    }\\n\\t\\n\\t    /**\\n\\t     * @dev Private function to clear current approval of a given token ID.\\n\\t     * @param tokenId uint256 ID of the token to be transferred\\n\\t     */\\n\\t    function _clearApproval(uint256 tokenId) private {\\n\\t        if (_tokenApprovals[tokenId] != address(0)) {\\n\\t            _tokenApprovals[tokenId] = address(0);\\n\\t        }\\n\\t    }\\n\\t}\\n\\n\\n\\n\",\"keccak256\":\"0xa5ddae9d27034c8f1ec65d69e266da76cdcf00595753af099f37f2c4f08bb038\",\"license\":\"MIT\"},\"contracts/external/Address.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\r\\n/**\\r\\n * @dev Collection of functions related to the address type,\\r\\n */\\r\\nlibrary Address {\\r\\n    /**\\r\\n     * @dev Returns true if `account` is a contract.\\r\\n     *\\r\\n     * This test is non-exhaustive, and there may be false-negatives: during the\\r\\n     * execution of a contract's constructor, its address will be reported as\\r\\n     * not containing a contract.\\r\\n     *\\r\\n     * > It is unsafe to assume that an address for which this function returns\\r\\n     * false is an externally-owned account (EOA) and not a contract.\\r\\n     */\\r\\n    function isContract(address account) internal view returns (bool) {\\r\\n        // This method relies in extcodesize, which returns 0 for contracts in\\r\\n        // construction, since the code is only stored at the end of the\\r\\n        // constructor execution.\\r\\n\\r\\n        uint256 size;\\r\\n        // solhint-disable-next-line no-inline-assembly\\r\\n        assembly { size := extcodesize(account) }\\r\\n        return size > 0;\\r\\n    }\\r\\n}\",\"keccak256\":\"0x9fb55e912487899a9226f952794f47aefccd336d747e9f237324416b6ef5cebc\",\"license\":\"MIT\"},\"contracts/external/Counters.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\t\\r\\n\\timport \\\"./SafeMath.sol\\\";\\r\\n\\t\\r\\n\\t/**\\r\\n\\t * @title Counters\\r\\n\\t * @author Matt Condon (@shrugs)\\r\\n\\t * @dev Provides counters that can only be incremented or decremented by one. This can be used e.g. to track the number\\r\\n\\t * of elements in a mapping, issuing XRC721 ids, or counting request ids.\\r\\n\\t *\\r\\n\\t * Include with `using Counters for Counters.Counter;`\\r\\n\\t * Since it is not possible to overflow a 256 bit integer with increments of one, `increment` can skip the SafeMath\\r\\n\\t * overflow check, thereby saving gas. This does assume however correct usage, in that the underlying `_value` is never\\r\\n\\t * directly accessed.\\r\\n\\t */\\r\\n\\tlibrary Counters {\\r\\n\\t    using SafeMath for uint256;\\r\\n\\t\\r\\n\\t    struct Counter {\\r\\n\\t        // This variable should never be directly accessed by users of the library: interactions must be restricted to\\r\\n\\t        // the library's function. As of Solidity v0.5.2, this cannot be enforced, though there is a proposal to add\\r\\n\\t        // this feature: see https://github.com/XDC/solidity/issues/4637\\r\\n\\t        uint256 _value; // default: 0\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    function current(Counter storage counter) internal view returns (uint256) {\\r\\n\\t        return counter._value;\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    function increment(Counter storage counter) internal {\\r\\n\\t        counter._value += 1;\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    function decrement(Counter storage counter) internal {\\r\\n\\t        counter._value = counter._value.sub(1);\\r\\n\\t    }\\r\\n\\t}\\r\\n\\r\\n\",\"keccak256\":\"0xfec4233b1fac91ed041ba079507340e7f90265c6d8c831602290bdcdbb4f7239\",\"license\":\"MIT\"},\"contracts/external/IXRC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\t\\r\\n\\t/**\\r\\n\\t * @dev Interface of the XRC165 standard\\r\\n\\t *\\r\\n\\t * Implementers can declare support of contract interfaces, which can then be\\r\\n\\t * queried by others (`XRC165Checker`).\\r\\n\\t *\\r\\n\\t * For an implementation, see `XRC165`.\\r\\n\\t */\\r\\n\\tinterface IXRC165 {\\r\\n\\t    /**\\r\\n\\t     * @dev Returns true if this contract implements the interface defined by\\r\\n\\t     * `interfaceId`.\\r\\n\\t     * to learn more about how these ids are created.\\r\\n\\t     *\\r\\n\\t     * This function call must use less than 30 000 gas.\\r\\n\\t     */\\r\\n\\t    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\r\\n\\t}\\r\\n\\r\\n\",\"keccak256\":\"0x5965d5ffb7ad8dcf242088d14ffb585484126713cdd7a8f5899f7237dafe3bab\",\"license\":\"MIT\"},\"contracts/external/IXRC721.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\t\\r\\n\\timport \\\"../external/IXRC165.sol\\\";\\r\\n\\t\\r\\n\\t/**\\r\\n\\t * @dev Required interface of an XRC721 compliant contract.\\r\\n\\t */\\r\\n\\tabstract contract IXRC721 is IXRC165 {\\r\\n\\t    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);\\r\\n\\t    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);\\r\\n\\t    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Returns the number of NFTs in `owner`'s account.\\r\\n\\t     */\\r\\n\\t    function balanceOf(address owner) public view virtual returns (uint256 balance);\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Returns the owner of the NFT specified by `tokenId`.\\r\\n\\t     */\\r\\n\\t    function ownerOf(uint256 tokenId) public view virtual returns (address owner);\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Transfers a specific NFT (`tokenId`) from one account (`from`) to\\r\\n\\t     * another (`to`).\\r\\n\\t     *\\r\\n\\t     * \\r\\n\\t     *\\r\\n\\t     * Requirements:\\r\\n\\t     * - `from`, `to` cannot be zero.\\r\\n\\t     * - `tokenId` must be owned by `from`.\\r\\n\\t     * - If the caller is not `from`, it must be have been allowed to move this\\r\\n\\t     * NFT by either `approve` or `setApproveForAll`.\\r\\n\\t     */\\r\\n\\t    function safeTransferFrom(address from, address to, uint256 tokenId) public virtual;\\r\\n\\t    /**\\r\\n\\t     * @dev Transfers a specific NFT (`tokenId`) from one account (`from`) to\\r\\n\\t     * another (`to`).\\r\\n\\t     *\\r\\n\\t     * Requirements:\\r\\n\\t     * - If the caller is not `from`, it must be approved to move this NFT by\\r\\n\\t     * either `approve` or `setApproveForAll`.\\r\\n\\t     */\\r\\n\\t    function transferFrom(address from, address to, uint256 tokenId) public virtual;\\r\\n\\t    function approve(address to, uint256 tokenId) public virtual;\\r\\n\\t    function getApproved(uint256 tokenId) public view virtual returns (address operator);\\r\\n\\t\\r\\n\\t    function setApprovalForAll(address operator, bool _approved) public virtual;\\r\\n\\t    function isApprovedForAll(address owner, address operator) public view virtual returns (bool);\\r\\n\\t\\r\\n\\t\\r\\n\\t    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data) public virtual;\\r\\n\\t}\",\"keccak256\":\"0xdb4b6087312c60ed71313a5446ae51708fdd9db28376b86390e2dcf32a29f51e\",\"license\":\"MIT\"},\"contracts/external/IXRC721Receiver.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\t\\r\\n\\t/**\\r\\n\\t * @title XRC721 token receiver interface\\r\\n\\t * @dev Interface for any contract that wants to support safeTransfers\\r\\n\\t * from XRC721 asset contracts.\\r\\n\\t */\\r\\n\\tabstract contract IXRC721Receiver {\\r\\n\\t    /**\\r\\n\\t     * @notice Handle the receipt of an NFT\\r\\n\\t     * @dev The XRC721 smart contract calls this function on the recipient\\r\\n\\t     * after a `safeTransfer`. This function MUST return the function selector,\\r\\n\\t     * otherwise the caller will revert the transaction. The selector to be\\r\\n\\t     * returned can be obtained as `this.onXRC721Received.selector`. This\\r\\n\\t     * function MAY throw to revert and reject the transfer.\\r\\n\\t     * Note: the XRC721 contract address is always the message sender.\\r\\n\\t     * @param operator The address which called `safeTransferFrom` function\\r\\n\\t     * @param from The address which previously owned the token\\r\\n\\t     * @param tokenId The NFT identifier which is being transferred\\r\\n\\t     * @param data Additional data with no specified format\\r\\n\\t     * @return bytes4 `bytes4(keccak256(\\\"onXRC721Received(address,address,uint256,bytes)\\\"))`\\r\\n\\t     */\\r\\n\\t    function onXRC721Received(address operator, address from, uint256 tokenId, bytes memory data)\\r\\n\\t    public virtual returns (bytes4);\\r\\n\\t}\\r\\n\\r\\n\",\"keccak256\":\"0x0e6d969a8f6fd8059b843ff681940981a2b8e84506a8fe634700881f02893917\",\"license\":\"MIT\"},\"contracts/external/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\t\\r\\n\\t/**\\r\\n\\t * @dev Wrappers over Solidity's arithmetic operations with added overflow\\r\\n\\t * checks.\\r\\n\\t *\\r\\n\\t * Arithmetic operations in Solidity wrap on overflow. This can easily result\\r\\n\\t * in bugs, because programmers usually assume that an overflow raises an\\r\\n\\t * error, which is the standard behavior in high level programming languages.\\r\\n\\t * `SafeMath` restores this intuition by reverting the transaction when an\\r\\n\\t * operation overflows.\\r\\n\\t *\\r\\n\\t * Using this library instead of the unchecked operations eliminates an entire\\r\\n\\t * class of bugs, so it's recommended to use it always.\\r\\n\\t */\\r\\n\\tlibrary SafeMath {\\r\\n\\t    /**\\r\\n\\t     * @dev Returns the addition of two unsigned integers, reverting on\\r\\n\\t     * overflow.\\r\\n\\t     *\\r\\n\\t     * Counterpart to Solidity's `+` operator.\\r\\n\\t     *\\r\\n\\t     * Requirements:\\r\\n\\t     * - Addition cannot overflow.\\r\\n\\t     */\\r\\n\\t    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n\\t        uint256 c = a + b;\\r\\n\\t        require(c >= a, \\\"SafeMath: addition overflow\\\");\\r\\n\\t\\r\\n\\t        return c;\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Returns the subtraction of two unsigned integers, reverting on\\r\\n\\t     * overflow (when the result is negative).\\r\\n\\t     *\\r\\n\\t     * Counterpart to Solidity's `-` operator.\\r\\n\\t     *\\r\\n\\t     * Requirements:\\r\\n\\t     * - Subtraction cannot overflow.\\r\\n\\t     */\\r\\n\\t    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n\\t        require(b <= a, \\\"SafeMath: subtraction overflow\\\");\\r\\n\\t        uint256 c = a - b;\\r\\n\\t\\r\\n\\t        return c;\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Returns the multiplication of two unsigned integers, reverting on\\r\\n\\t     * overflow.\\r\\n\\t     *\\r\\n\\t     * Counterpart to Solidity's `*` operator.\\r\\n\\t     *\\r\\n\\t     * Requirements:\\r\\n\\t     * - Multiplication cannot overflow.\\r\\n\\t     */\\r\\n\\t    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n\\t        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\r\\n\\t        // benefit is lost if 'b' is also tested.\\r\\n\\t        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522\\r\\n\\t        if (a == 0) {\\r\\n\\t            return 0;\\r\\n\\t        }\\r\\n\\t\\r\\n\\t        uint256 c = a * b;\\r\\n\\t        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\r\\n\\t\\r\\n\\t        return c;\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Returns the integer division of two unsigned integers. Reverts on\\r\\n\\t     * division by zero. The result is rounded towards zero.\\r\\n\\t     *\\r\\n\\t     * Counterpart to Solidity's `/` operator. Note: this function uses a\\r\\n\\t     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\r\\n\\t     * uses an invalid opcode to revert (consuming all remaining gas).\\r\\n\\t     *\\r\\n\\t     * Requirements:\\r\\n\\t     * - The divisor cannot be zero.\\r\\n\\t     */\\r\\n\\t    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n\\t        // Solidity only automatically asserts when dividing by 0\\r\\n\\t        require(b > 0, \\\"SafeMath: division by zero\\\");\\r\\n\\t        uint256 c = a / b;\\r\\n\\t        // assert(a == b * c + a % b); // There is no case in which this doesn't hold\\r\\n\\t\\r\\n\\t        return c;\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\r\\n\\t     * Reverts when dividing by zero.\\r\\n\\t     *\\r\\n\\t     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\r\\n\\t     * opcode (which leaves remaining gas untouched) while Solidity uses an\\r\\n\\t     * invalid opcode to revert (consuming all remaining gas).\\r\\n\\t     *\\r\\n\\t     * Requirements:\\r\\n\\t     * - The divisor cannot be zero.\\r\\n\\t     */\\r\\n\\t    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n\\t        require(b != 0, \\\"SafeMath: modulo by zero\\\");\\r\\n\\t        return a % b;\\r\\n\\t    }\\r\\n\\t}\\r\\n\\r\\n\",\"keccak256\":\"0x0c0f116ea45d3a22cabb1aea62604fc1b0706e49b74e38aebbce0b1c1296ffc2\",\"license\":\"MIT\"},\"contracts/external/XRC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.0;\\r\\n\\t\\r\\n\\timport \\\"./IXRC165.sol\\\";\\r\\n\\t\\r\\n\\t/**\\r\\n\\t * @dev Implementation of the `IXRC165` interface.\\r\\n\\t *\\r\\n\\t * Contracts may inherit from this and call `_registerInterface` to declare\\r\\n\\t * their support of an interface.\\r\\n\\t */\\r\\n\\tabstract contract XRC165 is IXRC165 {\\r\\n\\t    /*\\r\\n\\t     * bytes4(keccak256('supportsInterface(bytes4)')) == 0x01ffc9a7\\r\\n\\t     */\\r\\n\\t    bytes4 private constant _INTERFACE_ID_XRC165 = 0x01ffc9a7;\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Mapping of interface ids to whether or not it's supported.\\r\\n\\t     */\\r\\n\\t    mapping(bytes4 => bool) private _supportedInterfaces;\\r\\n\\t\\r\\n\\t    // constructor () internal {\\r\\n\\t\\tconstructor () {\\r\\n\\t        // Derived contracts need only register support for their own interfaces,\\r\\n\\t        // we register support for XRC165 itself here\\r\\n\\t        _registerInterface(_INTERFACE_ID_XRC165);\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev See `IXRC165.supportsInterface`.\\r\\n\\t     *\\r\\n\\t     * Time complexity O(1), guaranteed to always use less than 30 000 gas.\\r\\n\\t     */\\r\\n\\t    function supportsInterface(bytes4 interfaceId) external view override returns (bool) {\\r\\n\\t        return _supportedInterfaces[interfaceId];\\r\\n\\t    }\\r\\n\\t\\r\\n\\t    /**\\r\\n\\t     * @dev Registers the contract as an implementer of the interface defined by\\r\\n\\t     * `interfaceId`. Support of the actual XRC165 interface is automatic and\\r\\n\\t     * registering its interface id is not required.\\r\\n\\t     *\\r\\n\\t     * See `IXRC165.supportsInterface`.\\r\\n\\t     *\\r\\n\\t     * Requirements:\\r\\n\\t     *\\r\\n\\t     * - `interfaceId` cannot be the XRC165 invalid interface (`0xffffffff`).\\r\\n\\t     */\\r\\n\\t    function _registerInterface(bytes4 interfaceId) internal {\\r\\n\\t        require(interfaceId != 0xffffffff, \\\"XRC165: invalid interface id\\\");\\r\\n\\t        _supportedInterfaces[interfaceId] = true;\\r\\n\\t    }\\r\\n\\t}\\r\\n\\r\\n\",\"keccak256\":\"0x279b3c5e4734b2da1a2bea7ac564c5e974a0473f8a9c126856ca5da19ade31df\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60806040523480156200001157600080fd5b50620000246301ffc9a760e01b620000f2565b60408051808201909152600f8082526e22ba3432b932bab69025b4b63632b960891b60209092019182526200005c916006916200037c565b506040805180820190915260098082526822aa2425a4a62622a960b91b60209092019182526200008f916007916200037c565b50620000a26380ac58cd60e01b620000f2565b620000c373b3c7c1c14f83f57370fce247ec359be8584c3902600162000177565b620000ec60016040518061018001604052806101458152602001620015116101459139620002bc565b62000484565b6001600160e01b03198082161415620001525760405162461bcd60e51b815260206004820152601c60248201527f5852433136353a20696e76616c696420696e746572666163652069640000000060448201526064015b60405180910390fd5b6001600160e01b0319166000908152602081905260409020805460ff19166001179055565b6001600160a01b038216620001cf5760405162461bcd60e51b815260206004820181905260248201527f5852433732313a206d696e7420746f20746865207a65726f2061646472657373604482015260640162000149565b6000818152600160205260409020546001600160a01b031615620002365760405162461bcd60e51b815260206004820152601c60248201527f5852433732313a20746f6b656e20616c7265616479206d696e74656400000000604482015260640162000149565b600081815260016020908152604080832080546001600160a01b0319166001600160a01b03871690811790915583526003825290912062000280916200035d811b620008ec17901c565b60405181906001600160a01b038416906000907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef908290a45050565b6000828152600160205260409020546001600160a01b0316620003375760405162461bcd60e51b815260206004820152602c60248201527f5852433732314d657461646174613a2055524920736574206f66206e6f6e657860448201526b34b9ba32b73a103a37b5b2b760a11b606482015260840162000149565b6000828152600560209081526040909120825162000358928401906200037c565b505050565b600181600001600082825462000374919062000422565b909155505050565b8280546200038a9062000447565b90600052602060002090601f016020900481019282620003ae5760008555620003f9565b82601f10620003c957805160ff1916838001178555620003f9565b82800160010185558215620003f9579182015b82811115620003f9578251825591602001919060010190620003dc565b50620004079291506200040b565b5090565b5b808211156200040757600081556001016200040c565b600082198211156200044257634e487b7160e01b81526011600452602481fd5b500190565b600181811c908216806200045c57607f821691505b602082108114156200047e57634e487b7160e01b600052602260045260246000fd5b50919050565b61107d80620004946000396000f3fe608060405234801561001057600080fd5b50600436106100cf5760003560e01c80636352211e1161008c578063a22cb46511610066578063a22cb465146101cd578063b88d4fde146101e0578063c87b56dd146101f3578063e985e9c51461020657600080fd5b80636352211e1461019157806370a08231146101a457806395d89b41146101c557600080fd5b806301ffc9a7146100d457806306fdde0314610116578063081812fc1461012b578063095ea7b31461015657806323b872dd1461016b57806342842e0e1461017e575b600080fd5b6101016100e2366004610eb0565b6001600160e01b03191660009081526020819052604090205460ff1690565b60405190151581526020015b60405180910390f35b61011e610219565b60405161010d9190610f88565b61013e610139366004610ee8565b6102ab565b6040516001600160a01b03909116815260200161010d565b610169610164366004610e87565b610345565b005b610169610179366004610d3d565b6104a8565b61016961018c366004610d3d565b610528565b61013e61019f366004610ee8565b610543565b6101b76101b2366004610cea565b6105c0565b60405190815260200161010d565b61011e610649565b6101696101db366004610e4d565b610658565b6101696101ee366004610d78565b61071d565b61011e610201366004610ee8565b6107a1565b610101610214366004610d0b565b6108be565b60606006805461022890610fca565b80601f016020809104026020016040519081016040528092919081815260200182805461025490610fca565b80156102a15780601f10610276576101008083540402835291602001916102a1565b820191906000526020600020905b81548152906001019060200180831161028457829003601f168201915b5050505050905090565b6000818152600160205260408120546001600160a01b03166103295760405162461bcd60e51b815260206004820152602c60248201527f5852433732313a20617070726f76656420717565727920666f72206e6f6e657860448201526b34b9ba32b73a103a37b5b2b760a11b60648201526084015b60405180910390fd5b506000908152600260205260409020546001600160a01b031690565b600061035082610543565b9050806001600160a01b0316836001600160a01b031614156103be5760405162461bcd60e51b815260206004820152602160248201527f5852433732313a20617070726f76616c20746f2063757272656e74206f776e656044820152603960f91b6064820152608401610320565b336001600160a01b03821614806103da57506103da81336108be565b61044c5760405162461bcd60e51b815260206004820152603860248201527f5852433732313a20617070726f76652063616c6c6572206973206e6f74206f7760448201527f6e6572206e6f7220617070726f76656420666f7220616c6c00000000000000006064820152608401610320565b60008281526002602052604080822080546001600160a01b0319166001600160a01b0387811691821790925591518593918516917f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92591a4505050565b6104b23382610909565b6105185760405162461bcd60e51b815260206004820152603160248201527f5852433732313a207472616e736665722063616c6c6572206973206e6f74206f6044820152701ddb995c881b9bdc88185c1c1c9bdd9959607a1b6064820152608401610320565b6105238383836109e0565b505050565b6105238383836040518060200160405280600081525061071d565b6000818152600160205260408120546001600160a01b0316806105ba5760405162461bcd60e51b815260206004820152602960248201527f5852433732313a206f776e657220717565727920666f72206e6f6e657869737460448201526832b73a103a37b5b2b760b91b6064820152608401610320565b92915050565b60006001600160a01b03821661062b5760405162461bcd60e51b815260206004820152602a60248201527f5852433732313a2062616c616e636520717565727920666f7220746865207a65604482015269726f206164647265737360b01b6064820152608401610320565b6001600160a01b0382166000908152600360205260409020546105ba565b60606007805461022890610fca565b6001600160a01b0382163314156106b15760405162461bcd60e51b815260206004820152601960248201527f5852433732313a20617070726f766520746f2063616c6c6572000000000000006044820152606401610320565b3360008181526004602090815260408083206001600160a01b03871680855290835292819020805460ff191686151590811790915590519081529192917f17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31910160405180910390a35050565b6107288484846104a8565b61073484848484610b64565b61079b5760405162461bcd60e51b815260206004820152603260248201527f5852433732313a207472616e7366657220746f206e6f6e20585243373231526560448201527131b2b4bb32b91034b6b83632b6b2b73a32b960711b6064820152608401610320565b50505050565b6000818152600160205260409020546060906001600160a01b03166108205760405162461bcd60e51b815260206004820152602f60248201527f5852433732314d657461646174613a2055524920717565727920666f72206e6f60448201526e3732bc34b9ba32b73a103a37b5b2b760891b6064820152608401610320565b6000828152600560205260409020805461083990610fca565b80601f016020809104026020016040519081016040528092919081815260200182805461086590610fca565b80156108b25780601f10610887576101008083540402835291602001916108b2565b820191906000526020600020905b81548152906001019060200180831161089557829003601f168201915b50505050509050919050565b6001600160a01b03918216600090815260046020908152604080832093909416825291909152205460ff1690565b60018160000160008282546109019190610f9b565b909155505050565b6000818152600160205260408120546001600160a01b03166109825760405162461bcd60e51b815260206004820152602c60248201527f5852433732313a206f70657261746f7220717565727920666f72206e6f6e657860448201526b34b9ba32b73a103a37b5b2b760a11b6064820152608401610320565b600061098d83610543565b9050806001600160a01b0316846001600160a01b031614806109c85750836001600160a01b03166109bd846102ab565b6001600160a01b0316145b806109d857506109d881856108be565b949350505050565b826001600160a01b03166109f382610543565b6001600160a01b031614610a5b5760405162461bcd60e51b815260206004820152602960248201527f5852433732313a207472616e73666572206f6620746f6b656e2074686174206960448201526839903737ba1037bbb760b91b6064820152608401610320565b6001600160a01b038216610abd5760405162461bcd60e51b8152602060048201526024808201527f5852433732313a207472616e7366657220746f20746865207a65726f206164646044820152637265737360e01b6064820152608401610320565b610ac681610c22565b6001600160a01b0383166000908152600360205260409020610ae790610c5f565b6001600160a01b0382166000908152600360205260409020610b08906108ec565b60008181526001602052604080822080546001600160a01b0319166001600160a01b0386811691821790925591518493918716917fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef91a4505050565b60006001600160a01b0384163b610b7d575060016109d8565b60405163e82388f360e01b81526000906001600160a01b0386169063e82388f390610bb29033908a9089908990600401610f4b565b602060405180830381600087803b158015610bcc57600080fd5b505af1158015610be0573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c049190610ecc565b6001600160e01b031916630a85bd0160e11b14915050949350505050565b6000818152600260205260409020546001600160a01b031615610c5c57600081815260026020526040902080546001600160a01b03191690555b50565b8054610c6c906001610c70565b9055565b600082821115610cc25760405162461bcd60e51b815260206004820152601e60248201527f536166654d6174683a207375627472616374696f6e206f766572666c6f7700006044820152606401610320565b60006109d88385610fb3565b80356001600160a01b0381168114610ce557600080fd5b919050565b600060208284031215610cfb578081fd5b610d0482610cce565b9392505050565b60008060408385031215610d1d578081fd5b610d2683610cce565b9150610d3460208401610cce565b90509250929050565b600080600060608486031215610d51578081fd5b610d5a84610cce565b9250610d6860208501610cce565b9150604084013590509250925092565b60008060008060808587031215610d8d578081fd5b610d9685610cce565b9350610da460208601610cce565b925060408501359150606085013567ffffffffffffffff80821115610dc7578283fd5b818701915087601f830112610dda578283fd5b813581811115610dec57610dec61101b565b604051601f8201601f19908116603f01168101908382118183101715610e1457610e1461101b565b816040528281528a6020848701011115610e2c578586fd5b82602086016020830137918201602001949094529598949750929550505050565b60008060408385031215610e5f578182fd5b610e6883610cce565b915060208301358015158114610e7c578182fd5b809150509250929050565b60008060408385031215610e99578182fd5b610ea283610cce565b946020939093013593505050565b600060208284031215610ec1578081fd5b8135610d0481611031565b600060208284031215610edd578081fd5b8151610d0481611031565b600060208284031215610ef9578081fd5b5035919050565b60008151808452815b81811015610f2557602081850181015186830182015201610f09565b81811115610f365782602083870101525b50601f01601f19169290920160200192915050565b6001600160a01b0385811682528416602082015260408101839052608060608201819052600090610f7e90830184610f00565b9695505050505050565b602081526000610d046020830184610f00565b60008219821115610fae57610fae611005565b500190565b600082821015610fc557610fc5611005565b500390565b600181811c90821680610fde57607f821691505b60208210811415610fff57634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052604160045260246000fd5b6001600160e01b031981168114610c5c57600080fdfea2646970667358221220a8bc54c89c1dc19155675a9598f962923134fefd4f712e1ffa7ce09f9a484a7e64736f6c634300080400337b226e616d65223a2022457468657265756d204b696c6c6572222c226465736372697074696f6e223a2022584443206b696c6c7320457468657265756d20696e20746865207261696e79206e6967687420776974682061207368617270206b6e69666520696e20626c6f6f64792066617368696f6e207768696c6520584443277320666f75722068656e63686d656e206c6f6f6b206f6e2066726f6d20626568696e642c207361766f72696e67206576657279206d6f6d656e742e2041332073697a652e20353030204450492e222c22696d616765223a2022697066733a2f2f516d55575463753779764e72696837663577364b7a7431724b6337714c364a39705864544b6e7550713934384269222c2265787465726e616c5f75726c223a202268747470733a2f2f7864632e6172742f657468657265756d6b696c6c65722e706e67227d",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100cf5760003560e01c80636352211e1161008c578063a22cb46511610066578063a22cb465146101cd578063b88d4fde146101e0578063c87b56dd146101f3578063e985e9c51461020657600080fd5b80636352211e1461019157806370a08231146101a457806395d89b41146101c557600080fd5b806301ffc9a7146100d457806306fdde0314610116578063081812fc1461012b578063095ea7b31461015657806323b872dd1461016b57806342842e0e1461017e575b600080fd5b6101016100e2366004610eb0565b6001600160e01b03191660009081526020819052604090205460ff1690565b60405190151581526020015b60405180910390f35b61011e610219565b60405161010d9190610f88565b61013e610139366004610ee8565b6102ab565b6040516001600160a01b03909116815260200161010d565b610169610164366004610e87565b610345565b005b610169610179366004610d3d565b6104a8565b61016961018c366004610d3d565b610528565b61013e61019f366004610ee8565b610543565b6101b76101b2366004610cea565b6105c0565b60405190815260200161010d565b61011e610649565b6101696101db366004610e4d565b610658565b6101696101ee366004610d78565b61071d565b61011e610201366004610ee8565b6107a1565b610101610214366004610d0b565b6108be565b60606006805461022890610fca565b80601f016020809104026020016040519081016040528092919081815260200182805461025490610fca565b80156102a15780601f10610276576101008083540402835291602001916102a1565b820191906000526020600020905b81548152906001019060200180831161028457829003601f168201915b5050505050905090565b6000818152600160205260408120546001600160a01b03166103295760405162461bcd60e51b815260206004820152602c60248201527f5852433732313a20617070726f76656420717565727920666f72206e6f6e657860448201526b34b9ba32b73a103a37b5b2b760a11b60648201526084015b60405180910390fd5b506000908152600260205260409020546001600160a01b031690565b600061035082610543565b9050806001600160a01b0316836001600160a01b031614156103be5760405162461bcd60e51b815260206004820152602160248201527f5852433732313a20617070726f76616c20746f2063757272656e74206f776e656044820152603960f91b6064820152608401610320565b336001600160a01b03821614806103da57506103da81336108be565b61044c5760405162461bcd60e51b815260206004820152603860248201527f5852433732313a20617070726f76652063616c6c6572206973206e6f74206f7760448201527f6e6572206e6f7220617070726f76656420666f7220616c6c00000000000000006064820152608401610320565b60008281526002602052604080822080546001600160a01b0319166001600160a01b0387811691821790925591518593918516917f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92591a4505050565b6104b23382610909565b6105185760405162461bcd60e51b815260206004820152603160248201527f5852433732313a207472616e736665722063616c6c6572206973206e6f74206f6044820152701ddb995c881b9bdc88185c1c1c9bdd9959607a1b6064820152608401610320565b6105238383836109e0565b505050565b6105238383836040518060200160405280600081525061071d565b6000818152600160205260408120546001600160a01b0316806105ba5760405162461bcd60e51b815260206004820152602960248201527f5852433732313a206f776e657220717565727920666f72206e6f6e657869737460448201526832b73a103a37b5b2b760b91b6064820152608401610320565b92915050565b60006001600160a01b03821661062b5760405162461bcd60e51b815260206004820152602a60248201527f5852433732313a2062616c616e636520717565727920666f7220746865207a65604482015269726f206164647265737360b01b6064820152608401610320565b6001600160a01b0382166000908152600360205260409020546105ba565b60606007805461022890610fca565b6001600160a01b0382163314156106b15760405162461bcd60e51b815260206004820152601960248201527f5852433732313a20617070726f766520746f2063616c6c6572000000000000006044820152606401610320565b3360008181526004602090815260408083206001600160a01b03871680855290835292819020805460ff191686151590811790915590519081529192917f17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31910160405180910390a35050565b6107288484846104a8565b61073484848484610b64565b61079b5760405162461bcd60e51b815260206004820152603260248201527f5852433732313a207472616e7366657220746f206e6f6e20585243373231526560448201527131b2b4bb32b91034b6b83632b6b2b73a32b960711b6064820152608401610320565b50505050565b6000818152600160205260409020546060906001600160a01b03166108205760405162461bcd60e51b815260206004820152602f60248201527f5852433732314d657461646174613a2055524920717565727920666f72206e6f60448201526e3732bc34b9ba32b73a103a37b5b2b760891b6064820152608401610320565b6000828152600560205260409020805461083990610fca565b80601f016020809104026020016040519081016040528092919081815260200182805461086590610fca565b80156108b25780601f10610887576101008083540402835291602001916108b2565b820191906000526020600020905b81548152906001019060200180831161089557829003601f168201915b50505050509050919050565b6001600160a01b03918216600090815260046020908152604080832093909416825291909152205460ff1690565b60018160000160008282546109019190610f9b565b909155505050565b6000818152600160205260408120546001600160a01b03166109825760405162461bcd60e51b815260206004820152602c60248201527f5852433732313a206f70657261746f7220717565727920666f72206e6f6e657860448201526b34b9ba32b73a103a37b5b2b760a11b6064820152608401610320565b600061098d83610543565b9050806001600160a01b0316846001600160a01b031614806109c85750836001600160a01b03166109bd846102ab565b6001600160a01b0316145b806109d857506109d881856108be565b949350505050565b826001600160a01b03166109f382610543565b6001600160a01b031614610a5b5760405162461bcd60e51b815260206004820152602960248201527f5852433732313a207472616e73666572206f6620746f6b656e2074686174206960448201526839903737ba1037bbb760b91b6064820152608401610320565b6001600160a01b038216610abd5760405162461bcd60e51b8152602060048201526024808201527f5852433732313a207472616e7366657220746f20746865207a65726f206164646044820152637265737360e01b6064820152608401610320565b610ac681610c22565b6001600160a01b0383166000908152600360205260409020610ae790610c5f565b6001600160a01b0382166000908152600360205260409020610b08906108ec565b60008181526001602052604080822080546001600160a01b0319166001600160a01b0386811691821790925591518493918716917fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef91a4505050565b60006001600160a01b0384163b610b7d575060016109d8565b60405163e82388f360e01b81526000906001600160a01b0386169063e82388f390610bb29033908a9089908990600401610f4b565b602060405180830381600087803b158015610bcc57600080fd5b505af1158015610be0573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610c049190610ecc565b6001600160e01b031916630a85bd0160e11b14915050949350505050565b6000818152600260205260409020546001600160a01b031615610c5c57600081815260026020526040902080546001600160a01b03191690555b50565b8054610c6c906001610c70565b9055565b600082821115610cc25760405162461bcd60e51b815260206004820152601e60248201527f536166654d6174683a207375627472616374696f6e206f766572666c6f7700006044820152606401610320565b60006109d88385610fb3565b80356001600160a01b0381168114610ce557600080fd5b919050565b600060208284031215610cfb578081fd5b610d0482610cce565b9392505050565b60008060408385031215610d1d578081fd5b610d2683610cce565b9150610d3460208401610cce565b90509250929050565b600080600060608486031215610d51578081fd5b610d5a84610cce565b9250610d6860208501610cce565b9150604084013590509250925092565b60008060008060808587031215610d8d578081fd5b610d9685610cce565b9350610da460208601610cce565b925060408501359150606085013567ffffffffffffffff80821115610dc7578283fd5b818701915087601f830112610dda578283fd5b813581811115610dec57610dec61101b565b604051601f8201601f19908116603f01168101908382118183101715610e1457610e1461101b565b816040528281528a6020848701011115610e2c578586fd5b82602086016020830137918201602001949094529598949750929550505050565b60008060408385031215610e5f578182fd5b610e6883610cce565b915060208301358015158114610e7c578182fd5b809150509250929050565b60008060408385031215610e99578182fd5b610ea283610cce565b946020939093013593505050565b600060208284031215610ec1578081fd5b8135610d0481611031565b600060208284031215610edd578081fd5b8151610d0481611031565b600060208284031215610ef9578081fd5b5035919050565b60008151808452815b81811015610f2557602081850181015186830182015201610f09565b81811115610f365782602083870101525b50601f01601f19169290920160200192915050565b6001600160a01b0385811682528416602082015260408101839052608060608201819052600090610f7e90830184610f00565b9695505050505050565b602081526000610d046020830184610f00565b60008219821115610fae57610fae611005565b500190565b600082821015610fc557610fc5611005565b500390565b600181811c90821680610fde57607f821691505b60208210811415610fff57634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052604160045260246000fd5b6001600160e01b031981168114610c5c57600080fdfea2646970667358221220a8bc54c89c1dc19155675a9598f962923134fefd4f712e1ffa7ce09f9a484a7e64736f6c63430008040033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "approve(address,uint256)": {
+        "details": "Approves another address to transfer the given token ID The zero address indicates there is no approved address. There can only be one approved address per token at a given time. Can only be called by the token owner or an approved operator.",
+        "params": {
+          "to": "address to be approved for the given token ID",
+          "tokenId": "uint256 ID of the token to be approved"
+        }
+      },
+      "balanceOf(address)": {
+        "details": "Returns the number of NFTs in `owner`'s account."
+      },
+      "getApproved(uint256)": {
+        "details": "Gets the approved address for a token ID, or zero if no address set Reverts if the token ID does not exist.",
+        "params": {
+          "tokenId": "uint256 ID of the token to query the approval of"
+        },
+        "returns": {
+          "_0": "address currently approved for the given token ID"
+        }
+      },
+      "isApprovedForAll(address,address)": {
+        "details": "Tells whether an operator is approved by a given owner.",
+        "params": {
+          "operator": "operator address which you want to query the approval of",
+          "owner": "owner address which you want to query the approval of"
+        },
+        "returns": {
+          "_0": "bool whether the given operator is approved by the given owner"
+        }
+      },
+      "ownerOf(uint256)": {
+        "details": "Gets the owner of the specified token ID.",
+        "params": {
+          "tokenId": "uint256 ID of the token to query the owner of"
+        },
+        "returns": {
+          "_0": "address currently marked as the owner of the given token ID"
+        }
+      },
+      "safeTransferFrom(address,address,uint256)": {
+        "details": "Safely transfers the ownership of a given token ID to another address If the target address is a contract, it must implement `onXRC721Received`, which is called upon a safe transfer, and return the magic value `bytes4(keccak256(\"onXRC721Received(address,address,uint256,bytes)\"))`; otherwise, the transfer is reverted. Requires the msg.sender to be the owner, approved, or operator",
+        "params": {
+          "from": "current owner of the token",
+          "to": "address to receive the ownership of the given token ID",
+          "tokenId": "uint256 ID of the token to be transferred"
+        }
+      },
+      "safeTransferFrom(address,address,uint256,bytes)": {
+        "details": "Safely transfers the ownership of a given token ID to another address If the target address is a contract, it must implement `onXRC721Received`, which is called upon a safe transfer, and return the magic value `bytes4(keccak256(\"onXRC721Received(address,address,uint256,bytes)\"))`; otherwise, the transfer is reverted. Requires the msg.sender to be the owner, approved, or operator",
+        "params": {
+          "_data": "bytes data to send along with a safe transfer check",
+          "from": "current owner of the token",
+          "to": "address to receive the ownership of the given token ID",
+          "tokenId": "uint256 ID of the token to be transferred"
+        }
+      },
+      "setApprovalForAll(address,bool)": {
+        "details": "Sets or unsets the approval of a given operator An operator is allowed to transfer all tokens of the sender on their behalf.",
+        "params": {
+          "approved": "representing the status of the approval to be set",
+          "to": "operator address to set the approval"
+        }
+      },
+      "supportsInterface(bytes4)": {
+        "details": "See `IXRC165.supportsInterface`. Time complexity O(1), guaranteed to always use less than 30 000 gas."
+      },
+      "transferFrom(address,address,uint256)": {
+        "details": "Transfers the ownership of a given token ID to another address. Usage of this method is discouraged, use `safeTransferFrom` whenever possible. Requires the msg.sender to be the owner, approved, or operator.",
+        "params": {
+          "from": "current owner of the token",
+          "to": "address to receive the ownership of the given token ID",
+          "tokenId": "uint256 ID of the token to be transferred"
+        }
+      }
+    },
+    "title": "XRC721 Non-Fungible Token Standard basic implementation",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 10216,
+        "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+        "label": "_supportedInterfaces",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_bytes4,t_bool)"
+      },
+      {
+        "astId": 6067,
+        "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+        "label": "_tokenOwner",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint256,t_address)"
+      },
+      {
+        "astId": 6071,
+        "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+        "label": "_tokenApprovals",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_uint256,t_address)"
+      },
+      {
+        "astId": 6076,
+        "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+        "label": "_ownedTokensCount",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_struct(Counter)9720_storage)"
+      },
+      {
+        "astId": 6082,
+        "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+        "label": "_operatorApprovals",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_bool))"
+      },
+      {
+        "astId": 6086,
+        "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+        "label": "_tokenURIs",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_uint256,t_string_storage)"
+      },
+      {
+        "astId": 6091,
+        "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+        "label": "_name",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 6093,
+        "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+        "label": "_symbol",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_string_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes4": {
+        "encoding": "inplace",
+        "label": "bytes4",
+        "numberOfBytes": "4"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_bool)"
+      },
+      "t_mapping(t_address,t_struct(Counter)9720_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct Counters.Counter)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Counter)9720_storage"
+      },
+      "t_mapping(t_bytes4,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_bytes4",
+        "label": "mapping(bytes4 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint256,t_address)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_uint256,t_string_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => string)",
+        "numberOfBytes": "32",
+        "value": "t_string_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Counter)9720_storage": {
+        "encoding": "inplace",
+        "label": "struct Counters.Counter",
+        "members": [
+          {
+            "astId": 9719,
+            "contract": "contracts/OriginalNFT.sol:OriginalNFT",
+            "label": "_value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "32"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

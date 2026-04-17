@@ -1,0 +1,61 @@
+**/node_modules
+.env
+
+# Hardhat files
+/cache
+/artifacts
+
+# TypeChain files
+/typechain
+/typechain-types
+
+# solidity-coverage files
+/coverage
+/coverage.json
+
+# Hardhat Ignition default folder for deployments against a local node
+ignition/deployments/chain-31337
+
+# Foundry build artifacts
+foundry-out/
+
+# Solidity compiler binary
+solc/
+
+# Claude Code config
+.claude/
+
+# Unused NFT originals and dead symlinks
+nfts/officialnfts/
+NFT_site/public/nfts/Ethereum Killer*
+
+# Log and progress files
+*.log
+relist-progress.txt
+transfer-progress.txt
+
+# Sensitive / server files
+certs/
+linode/
+
+# Next.js build output and local env
+NFT_site/.next/
+NFT_site/.env.local
+
+# Synpress test cache and test results
+NFT_site/.cache-synpress/
+NFT_site/test-results/
+
+# Foundry lock file
+foundry.lock
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Misc
+.hardhat-deploy-v2-notice
