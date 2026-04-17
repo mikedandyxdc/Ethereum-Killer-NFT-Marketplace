@@ -4,7 +4,7 @@
 
 **Live:** [xdc.art](https://xdc.art)
 
-10,000 unique NFTs on XDC Network. Fully on-chain marketplace with red-black tree ordering and min-heap price tracking.
+10,000 unique NFTs with 25 unique backgrounds on XDC Network. Fully on-chain marketplace with red-black tree ordering and min-heap price tracking.
 
 ## Smart Contract Key Features
 
