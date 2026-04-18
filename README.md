@@ -15,6 +15,16 @@
 - **On-chain pagination** — All queries support ascending/descending sort with pagination
 - **Sales history** — Per-token and global sales history stored and queryable on-chain
 
+## Deployed Contracts (XDC Mainnet)
+
+| Contract | Address |
+|----------|---------|
+| EthereumKiller | [0x1343AD5D396438eE12a7E50b3927792Ea1e6b6Ab](https://xdcscan.com/address/0x1343AD5D396438eE12a7E50b3927792Ea1e6b6Ab) |
+| OrderStatisticsTree | [0xF990007ee8b948284552d605d5e04BcC9b362960](https://xdcscan.com/address/0xF990007ee8b948284552d605d5e04BcC9b362960) |
+| CustomMinHeapLib | [0xE2D37697E278f7d768b64187053dDc04a6ce3bC0](https://xdcscan.com/address/0xE2D37697E278f7d768b64187053dDc04a6ce3bC0) |
+| OriginalNFT | [0xd6950d16402AEA3776881D3f72C13558444E8304](https://xdcscan.com/address/0xd6950d16402AEA3776881D3f72C13558444E8304) |
+| OriginalNFTMarketplace | [0xc4454DdB6EE5E9e6d77DE3D7b2b90eAa4FD59bca](https://xdcscan.com/address/0xc4454DdB6EE5E9e6d77DE3D7b2b90eAa4FD59bca) |
+
 ## Prerequisites
 
 - Node.js v18+
