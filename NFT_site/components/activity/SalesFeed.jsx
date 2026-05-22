@@ -46,7 +46,8 @@ export default function SalesFeed() {
     <div>
       <div className="flex items-center justify-between mb-4">
         <p className="text-sm text-xdc-muted">{count}{hasOriginalSales ? ` + ${originalSales.length} Original` : ''} total sales</p>
-        <SortToggle label="Date" ascending={ascending} onToggle={() => setAscending(!ascending)} />
+        {/* <SortToggle label="Date" ascending={ascending} onToggle={() => setAscending(!ascending)} /> */}
+        <SortToggle label="Price" ascending={ascending} onToggle={() => setAscending(!ascending)} />
       </div>
 
       {/* Original NFT sales pinned at top */}
