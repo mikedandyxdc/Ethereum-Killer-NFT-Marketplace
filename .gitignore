@@ -22,6 +22,9 @@ foundry-out/
 # Solidity compiler binary
 solc/
 
+# Hardhat solc input dumps for local deploys (per-compilation artifacts)
+deployments/localhost/solcInputs/
+
 # Claude Code config
 .claude/
 

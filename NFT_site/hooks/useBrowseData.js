@@ -1,7 +1,7 @@
 'use client'
 
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { parseEther } from 'viem'
 import { contractConfig, publicClient } from '@/lib/contract'
 import { loadMetadata, getTokenMetadata, getTraitValue, getAllTraitValues, TRAIT_TYPES, computeAllRarityScores } from '@/utils/metadata'
@@ -9,12 +9,27 @@ import { loadMetadata, getTokenMetadata, getTraitValue, getAllTraitValues, TRAIT
 const BATCH_SIZE = 500
 const PRICE_BATCH = 5000
 
-async function fetchAllTokenIds(functionName, countFunctionName) {
-  const count = await publicClient.readContract({
-    ...contractConfig,
-    functionName: countFunctionName,
-  })
-  const total = Number(count)
+// async function fetchAllTokenIds(functionName, countFunctionName) {
+//   const count = await publicClient.readContract({
+//     ...contractConfig,
+//     functionName: countFunctionName,
+//   })
+//   const total = Number(count)
+//   if (total === 0) return []
+//
+//   const ids = []
+//   for (let start = 0; start < total; start += BATCH_SIZE) {
+//     const batchCount = Math.min(BATCH_SIZE, total - start)
+//     const batch = await publicClient.readContract({
+//       ...contractConfig,
+//       functionName,
+//       args: [BigInt(start), BigInt(batchCount), true],
+//     })
+//     ids.push(...batch.map(Number))
+//   }
+//   return ids
+// }
+async function fetchAllTokenIds(functionName, total, onBatch) {
   if (total === 0) return []
 
   const ids = []
@@ -26,11 +41,12 @@ async function fetchAllTokenIds(functionName, countFunctionName) {
       args: [BigInt(start), BigInt(batchCount), true],
     })
     ids.push(...batch.map(Number))
+    onBatch?.()
   }
   return ids
 }
 
-async function fetchPricesForIds(tokenIds) {
+async function fetchPricesForIds(tokenIds, onBatch) {
   if (!tokenIds.length) return {}
   const priceMap = {}
   for (let i = 0; i < tokenIds.length; i += PRICE_BATCH) {
@@ -43,28 +59,79 @@ async function fetchPricesForIds(tokenIds) {
     batch.forEach((id, idx) => {
       priceMap[id] = result[idx]
     })
+    onBatch?.()
   }
   return priceMap
 }
 
 // Single fetch function that loads everything
-async function fetchBrowseData() {
+// async function fetchBrowseData() {
+//   const meta = await loadMetadata()
+//
+//   const [forSaleIds, notForSaleIds] = await Promise.all([
+//     fetchAllTokenIds('getForSaleTokens', 'getForSaleTokensCount'),
+//     fetchAllTokenIds('getNotForSaleTokens', 'getNotForSaleTokensCount'),
+//   ])
+//
+//   const traitOptions = {}
+//   TRAIT_TYPES.forEach((t) => {
+//     traitOptions[t] = getAllTraitValues(meta, t)
+//   })
+//
+//   const rarityScores = computeAllRarityScores(meta)
+//
+//   const prices = await fetchPricesForIds(forSaleIds)
+//
+//   return { metadata: meta, forSaleIds, notForSaleIds, traitOptions, rarityScores, prices }
+// }
+async function fetchBrowseData(onProgress = () => {}) {
+  onProgress(0.02, 'Loading metadata...')
   const meta = await loadMetadata()
+  onProgress(0.08, 'Counting listings...')
 
+  const [forSaleCount, notForSaleCount] = await Promise.all([
+    publicClient.readContract({ ...contractConfig, functionName: 'getForSaleTokensCount' }),
+    publicClient.readContract({ ...contractConfig, functionName: 'getNotForSaleTokensCount' }),
+  ])
+  const forSaleTotal = Number(forSaleCount)
+  const notForSaleTotal = Number(notForSaleCount)
+
+  const totalIdBatches =
+    Math.ceil(forSaleTotal / BATCH_SIZE) + Math.ceil(notForSaleTotal / BATCH_SIZE)
+  const totalPriceBatches = Math.ceil(forSaleTotal / PRICE_BATCH)
+
+  // Bar weights: metadata 0-8%, counts 8-10%, IDs 10-80%, rarity 80-82%, prices 82-100%
+  let idDone = 0
+  const onIdBatch = () => {
+    idDone++
+    const phase = idDone / Math.max(totalIdBatches, 1)
+    onProgress(0.10 + 0.70 * phase, `Loading token IDs (${idDone}/${totalIdBatches})...`)
+  }
+
+  let priceDone = 0
+  const onPriceBatch = () => {
+    priceDone++
+    const phase = priceDone / Math.max(totalPriceBatches, 1)
+    onProgress(0.82 + 0.18 * phase, `Loading prices (${priceDone}/${totalPriceBatches})...`)
+  }
+
+  onProgress(0.10, `Loading token IDs (0/${totalIdBatches})...`)
   const [forSaleIds, notForSaleIds] = await Promise.all([
-    fetchAllTokenIds('getForSaleTokens', 'getForSaleTokensCount'),
-    fetchAllTokenIds('getNotForSaleTokens', 'getNotForSaleTokensCount'),
+    fetchAllTokenIds('getForSaleTokens', forSaleTotal, onIdBatch),
+    fetchAllTokenIds('getNotForSaleTokens', notForSaleTotal, onIdBatch),
   ])
 
+  onProgress(0.80, 'Computing rarity...')
   const traitOptions = {}
   TRAIT_TYPES.forEach((t) => {
     traitOptions[t] = getAllTraitValues(meta, t)
   })
-
   const rarityScores = computeAllRarityScores(meta)
 
-  const prices = await fetchPricesForIds(forSaleIds)
+  onProgress(0.82, `Loading prices (0/${totalPriceBatches})...`)
+  const prices = await fetchPricesForIds(forSaleIds, onPriceBatch)
 
+  onProgress(1.0, 'Done')
   return { metadata: meta, forSaleIds, notForSaleIds, traitOptions, rarityScores, prices }
 }
 
@@ -80,10 +147,18 @@ async function fetchCounts() {
 export function useBrowseData() {
   const queryClient = useQueryClient()
   const lastCounts = useRef({ forSale: -1, notForSale: -1 })
+  const [progress, setProgress] = useState({ pct: 0, label: '' })
 
+  // const { data, isLoading, error, refetch } = useQuery({
+  //   queryKey: ['browseData'],
+  //   queryFn: fetchBrowseData,
+  //   staleTime: 2 * 60_000,
+  //   gcTime: 10 * 60_000,
+  //   refetchOnWindowFocus: false,
+  // })
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ['browseData'],
-    queryFn: fetchBrowseData,
+    queryFn: () => fetchBrowseData((pct, label) => setProgress({ pct, label })),
     staleTime: 2 * 60_000,    // data considered fresh for 2 min — no refetch on back-nav
     gcTime: 10 * 60_000,      // keep in cache for 10 min after unmount
     refetchOnWindowFocus: false,
@@ -138,9 +213,23 @@ export function useBrowseData() {
     }
   }, [data, queryClient])
 
+  // return {
+  //   loading: isLoading,
+  //   loadingStatus: isLoading ? 'Loading collection data...' : '',
+  //   error: error?.message || null,
+  //   metadata: data?.metadata || null,
+  //   forSaleIds: data?.forSaleIds || [],
+  //   notForSaleIds: data?.notForSaleIds || [],
+  //   prices: data?.prices || {},
+  //   rarityScores: data?.rarityScores || {},
+  //   traitOptions: data?.traitOptions || {},
+  //   fetchPricesForTokens,
+  //   refresh: refetch,
+  // }
   return {
     loading: isLoading,
-    loadingStatus: isLoading ? 'Loading collection data...' : '',
+    loadingStatus: isLoading ? progress.label : '',
+    loadingProgress: progress.pct,
     error: error?.message || null,
     metadata: data?.metadata || null,
     forSaleIds: data?.forSaleIds || [],

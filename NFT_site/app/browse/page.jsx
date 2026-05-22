@@ -9,6 +9,7 @@ import NFTGrid from '@/components/nft/NFTGrid'
 import TraitFilter from '@/components/nft/TraitFilter'
 import Pagination from '@/components/ui/Pagination'
 import SortToggle from '@/components/ui/SortToggle'
+import LoadingBar from '@/components/ui/LoadingBar'
 import { TRAIT_TYPES } from '@/utils/metadata'
 import { formatXDC } from '@/utils/format'
 
@@ -24,7 +25,8 @@ export default function BrowsePage() {
 }
 
 function BrowsePageInner() {
-  const { loading, loadingStatus, error, metadata, forSaleIds, notForSaleIds, prices, rarityScores, traitOptions, fetchPricesForTokens } = useBrowseData()
+  // const { loading, loadingStatus, error, metadata, forSaleIds, notForSaleIds, prices, rarityScores, traitOptions, fetchPricesForTokens } = useBrowseData()
+  const { loading, loadingStatus, loadingProgress, error, metadata, forSaleIds, notForSaleIds, prices, rarityScores, traitOptions, fetchPricesForTokens } = useBrowseData()
   const { data: originalPrice } = useOriginalRead('originalPrice', [], { refetchInterval: 10000 })
   const { data: originalForSale } = useOriginalRead('isOriginalForSale', [], { refetchInterval: 10000 })
 
@@ -113,11 +115,20 @@ function BrowsePageInner() {
     )
   }
 
+  // if (loading) {
+  //   return (
+  //     <div className="text-center py-16">
+  //       <p className="text-xdc-muted">Loading collection data...</p>
+  //       <p className="text-xs text-xdc-muted mt-2">{loadingStatus || 'Connecting to network...'}</p>
+  //     </div>
+  //   )
+  // }
   if (loading) {
     return (
-      <div className="text-center py-16">
-        <p className="text-xdc-muted">Loading collection data...</p>
-        <p className="text-xs text-xdc-muted mt-2">{loadingStatus || 'Connecting to network...'}</p>
+      <div className="max-w-md mx-auto py-16">
+        <LoadingBar percent={loadingProgress} />
+        <p className="text-xdc-muted text-center mt-3">Loading collection data...</p>
+        <p className="text-xs text-xdc-muted text-center mt-1">{loadingStatus || 'Connecting to network...'}</p>
       </div>
     )
   }
