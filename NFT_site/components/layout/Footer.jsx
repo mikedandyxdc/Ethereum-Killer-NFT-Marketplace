@@ -18,10 +18,10 @@ export default function Footer() {
   const chainId = useChainId()
   const explorerUrl = EXPLORER_URLS[chainId]
 
-  const { data: website } = useReadContract({
-    ...contractConfig,
-    functionName: 'website',
-  })
+  // const { data: website } = useReadContract({
+  //   ...contractConfig,
+  //   functionName: 'website',
+  // })
 
   const { data: xHandle } = useReadContract({
     ...contractConfig,
@@ -42,11 +42,11 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>Ethereum Killer NFT &mdash; Fully on-chain marketplace on XDC Network</p>
           <div className="flex items-center gap-4">
-            {website && (
-              <a href={website} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            {/* {website && (
+              <a href={website.startsWith('http') ? website : `https://${website}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                 Website
               </a>
-            )}
+            )} */}
             {xHandle && (
               <a href={`https://x.com/${xHandle}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                 X / Twitter
