@@ -144,10 +144,28 @@ async function fetchCounts() {
   return { forSale: Number(forSale), notForSale: Number(notForSale) }
 }
 
+// Module-scoped progress state — lives outside React component lifecycle so the
+// running fetch can keep updating it even after a component unmounts. Any newly
+// mounted instance of useBrowseData subscribes and immediately picks up the
+// latest progress value. Fixes the "loading bar stuck at 0% on remount" bug.
+let progressState = { pct: 0, label: '' }
+const progressListeners = new Set()
+
+function broadcastProgress(pct, label) {
+  progressState = { pct, label }
+  progressListeners.forEach((fn) => fn(progressState))
+}
+
 export function useBrowseData() {
   const queryClient = useQueryClient()
   const lastCounts = useRef({ forSale: -1, notForSale: -1 })
-  const [progress, setProgress] = useState({ pct: 0, label: '' })
+  // const [progress, setProgress] = useState({ pct: 0, label: '' })
+  const [progress, setProgress] = useState(progressState)
+  useEffect(() => {
+    progressListeners.add(setProgress)
+    setProgress(progressState)
+    return () => { progressListeners.delete(setProgress) }
+  }, [])
 
   // const { data, isLoading, error, refetch } = useQuery({
   //   queryKey: ['browseData'],
@@ -156,9 +174,19 @@ export function useBrowseData() {
   //   gcTime: 10 * 60_000,
   //   refetchOnWindowFocus: false,
   // })
+  // const { data, isLoading, error, refetch } = useQuery({
+  //   queryKey: ['browseData'],
+  //   queryFn: () => fetchBrowseData((pct, label) => setProgress({ pct, label })),
+  //   staleTime: 2 * 60_000,    // data considered fresh for 2 min — no refetch on back-nav
+  //   gcTime: 10 * 60_000,      // keep in cache for 10 min after unmount
+  //   refetchOnWindowFocus: false,
+  // })
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ['browseData'],
-    queryFn: () => fetchBrowseData((pct, label) => setProgress({ pct, label })),
+    queryFn: () => {
+      broadcastProgress(0, '')                  // reset at fetch start
+      return fetchBrowseData(broadcastProgress) // signature matches: (pct, label)
+    },
     staleTime: 2 * 60_000,    // data considered fresh for 2 min — no refetch on back-nav
     gcTime: 10 * 60_000,      // keep in cache for 10 min after unmount
     refetchOnWindowFocus: false,
