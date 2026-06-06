@@ -52,6 +52,9 @@ export default function Footer() {
                 X / Twitter
               </a>
             )}
+            <a href="https://github.com/mikedandyxdc/Ethereum-Killer-NFT-Marketplace" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              GitHub
+            </a>
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs">
